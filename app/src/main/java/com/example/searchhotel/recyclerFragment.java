@@ -3,10 +3,15 @@ package com.example.searchhotel;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +28,8 @@ public class recyclerFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    RecyclerView recview;
+    RecyclerAdapter adapter;
 
     public recyclerFragment() {
         // Required empty public constructor
@@ -58,7 +65,32 @@ public class recyclerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recycler, container, false);
+        View view=inflater.inflate(R.layout.fragment_recycler, container, false);
+
+        recview=(RecyclerView)view.findViewById(R.id.recview);
+        recview.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        FirebaseRecyclerOptions<HotelModel> options =
+                new FirebaseRecyclerOptions.Builder<HotelModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("hotelProducts"), HotelModel.class)
+                        .build();
+
+        adapter=new RecyclerAdapter(options);
+        recview.setAdapter(adapter);
+
+        return view;
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }
