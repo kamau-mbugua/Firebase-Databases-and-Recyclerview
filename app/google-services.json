@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1077132784952",
+    "project_id": "searchhotel-ce48e",
+    "storage_bucket": "searchhotel-ce48e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077132784952:android:637be8d2865d133de3bdcd",
+        "android_client_info": {
+          "package_name": "com.example.searchhotel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077132784952-4po72iqvbuho0qc2k8icrn6p00k0g6sf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.searchhotel",
+            "certificate_hash": "0dfabd887f78610642fc1a13e7955ff4601cfd38"
+          }
+        },
+        {
+          "client_id": "1077132784952-7ipp14dfja1703hrqd66ht9vhn9fk925.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzMBygrg97otoI0TwavNVj_oYmXD0PmY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077132784952-7ipp14dfja1703hrqd66ht9vhn9fk925.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
