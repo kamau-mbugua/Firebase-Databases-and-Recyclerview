@@ -42,7 +42,7 @@ public class RecyclerAdapter extends FirebaseRecyclerAdapter<HotelModel,Recycler
             @Override
             public void onClick(View view) {
                 AppCompatActivity activity=(AppCompatActivity)view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.wrap,new DescriptionFragment(model.getHotelListTag(),model.getHotelLocation(),model.getHotelName(),model.getHotelRating(), model.getImageUri())).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.wrap,new DescriptionFragment(model.getHotelListTag(),model.getHotelLocation(),model.getHotelName(),model.getHotelRating(), model.getImageUri(), model.getHotelMapUrl(),model.getHotelPhone(),model.getHotelEmail())).addToBackStack(null).commit();
             }
         });
     }

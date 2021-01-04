@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,9 +28,34 @@ public class DescriptionFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    String hotelListTag,  hotelLocation,  hotelName,  hotelRating,  imageUri,hotelMapUrl,hotelPhone,hotelEmail;
+
     public DescriptionFragment() {
         // Required empty public constructor
     }
+
+    /*public DescriptionFragment(String hotelListTag, String hotelLocation, String hotelName, String hotelRating, String imageUri) {
+        this.hotelListTag = hotelListTag;
+        this.hotelLocation = hotelLocation;
+        this.hotelName = hotelName;
+        this.hotelRating = hotelRating;
+        this.imageUri = imageUri;
+    }*/
+
+    public DescriptionFragment(String hotelListTag, String hotelLocation, String hotelName, String hotelRating, String imageUri, String hotelMapUrl, String hotelPhone, String hotelEmail) {
+        this.hotelListTag = hotelListTag;
+        this.hotelLocation = hotelLocation;
+        this.hotelName = hotelName;
+        this.hotelRating = hotelRating;
+        this.imageUri = imageUri;
+        this.hotelMapUrl = hotelMapUrl;
+        this.hotelPhone = hotelPhone;
+        this.hotelEmail = hotelEmail;
+    }
+
+    /*public DescriptionFragment(String hotelListTag, String hotelLocation, String hotelName, String hotelRating, String imageUri) {
+    }*/
+
 
 
 
@@ -57,10 +86,35 @@ public class DescriptionFragment extends Fragment {
         }
     }
 
+    ImageView hotelImage;
+    TextView ratings,tvHotelEmail,tvHotelPhone,tvHotelDirection,tvhotelLocation,
+            hotelNames,tagsList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_description, container, false);
+        View view=inflater.inflate(R.layout.fragment_description, container, false);
+
+        hotelImage = view.findViewById(R.id.hotelImage);
+        ratings = view.findViewById(R.id.ratings);
+        tvHotelEmail = view.findViewById(R.id.tvHotelEmail);
+        tvHotelPhone = view.findViewById(R.id.tvHotelPhone);
+        tvHotelDirection = view.findViewById(R.id.tvHotelDirection);
+        tvhotelLocation = view.findViewById(R.id.hotelLocation);
+        hotelNames = view.findViewById(R.id.hotelName);
+        tagsList = view.findViewById(R.id.tagsList);
+
+
+        ratings.setText(hotelRating);
+        tvHotelEmail.setText(hotelEmail);
+        tvHotelPhone.setText(hotelPhone);
+        tvHotelDirection.setText(hotelMapUrl);
+        tvhotelLocation.setText(hotelLocation);
+        hotelNames.setText(hotelName);
+        tagsList.setText(hotelListTag);
+
+        Picasso.with(getContext()).load(imageUri).into(hotelImage);
+
+
+        return  view;
     }
 }

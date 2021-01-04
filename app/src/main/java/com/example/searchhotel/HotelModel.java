@@ -7,12 +7,21 @@ public class HotelModel {
     public  String hotelRating;
     public String hotelListTag;
     public String hotelPricePerHour;
+    public String hotelMapUrl;
+    public String hotelPhone;
+    public String hotelEmail;
     private String key;
     private String ID;
 
 
     public HotelModel() {
 
+    }
+
+    public HotelModel(String hotelMapUrl, String hotelPhone, String hotelEmail) {
+        this.hotelMapUrl = hotelMapUrl;
+        this.hotelPhone = hotelPhone;
+        this.hotelEmail = hotelEmail;
     }
 
     public HotelModel(String hotelLocation, String hotelName, String imageUri, String hotelRating, String hotelListTag, String hotelPricePerHour) {
@@ -23,6 +32,30 @@ public class HotelModel {
         this.hotelListTag = hotelListTag;
         this.hotelPricePerHour = hotelPricePerHour;
 
+    }
+
+    public String getHotelMapUrl() {
+        return hotelMapUrl;
+    }
+
+    public void setHotelMapUrl(String hotelMapUrl) {
+        this.hotelMapUrl = hotelMapUrl;
+    }
+
+    public String getHotelPhone() {
+        return hotelPhone;
+    }
+
+    public void setHotelPhone(String hotelPhone) {
+        this.hotelPhone = hotelPhone;
+    }
+
+    public String getHotelEmail() {
+        return hotelEmail;
+    }
+
+    public void setHotelEmail(String hotelEmail) {
+        this.hotelEmail = hotelEmail;
     }
 
     public String getKey() {
