@@ -12,6 +12,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportFragmentManager().beginTransaction().replace(R.id.wrap, new recyclerFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.wrapper, new recyclerFragment()).commit();
     }
 }
